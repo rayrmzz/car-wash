@@ -44,7 +44,7 @@ function cerrarSesion() {
   window.location.href = "login.html";
 }
 
+let logoutButtons = document.getElementsByClassName("btn btn-logout");
+
 document.getElementById("loginForm").addEventListener("submit", iniciarSesion);
-document
-  .getElementById("btn btn-logout")
-  ?.addEventListener("click", cerrarSesion);
+logoutButtons.onclick = cerrarSesion;
