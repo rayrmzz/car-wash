@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Página Web</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="citas.js" defer></script>
+  </head>
+  <body>
+    <div class="topbar">
+      <h1 id="titulo">InstantWash</h1>
+      <a href="index.html">Inicio</a>
+      <a href="services.html">Servicios</a>
+      <a href="citas.html">Citas</a>
+      <a href="finanzas.html">Finanzas</a>
+    </div>
+    <div class="container">
+      <header class="pageHeader">
+        <h1>Citas</h1>
+        <button id="nuevaCita" class="btn">Agregar Cita</button>
+      </header>
+
+      <div id="formularioCita" class="formulario-container">
+        <div class="formulario">
+          <h3>Nueva Cita</h3>
+          <form id="formCita">
+            <div class="campo">
+              <label for="nombreCliente">Nombre del cliente:</label>
+              <input type="text" id="nombreCliente" required />
+            </div>
+            <div class="campo">
+              <label for="fechaCita">Fecha:</label>
+              <input type="date" id="fechaCita" required />
+            </div>
+            <div class="campo">
+              <label for="horaCita">Hora:</label>
+              <input type="time" id="horaCita" required />
+            </div>
+            <div class="campo">
+              <label for="servicioCita">Servicio:</label>
+              <select id="servicioCita" required>
+                <option value="">Seleccione un servicio</option>
+              </select>
+            </div>
+            <div class="botones-formulario">
+              <button type="submit" class="btn btn-guardar">Guardar</button>
+              <button type="button" id="cancelarCita" class="btn btn-cancelar">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <main>
+        <section id="listaCitas"></section>
+      </main>
+    </div>
+  </body>
+</html>

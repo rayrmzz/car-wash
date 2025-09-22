@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="servicios.js" defer></script>
+  </head>
+  <body>
+    <div class="topbar">
+      <h1 id="titulo">InstantWash</h1>
+      <a href="index.html">Inicio</a>
+      <a href="services.html">Servicios</a>
+      <a href="citas.html">Citas</a>
+      <a href="finanzas.html">Finanzas</a>
+    </div>
+    <div class="container">
+      <header class="pageHeader">
+        <h1>Servicios</h1>
+        <button id="agregarServicio" class="btn">Agregar Servicio</button>
+      </header>
+      <main>
+        <section id="listaServicios"></section>
+      </main>
+    </div>
+    <div id="formularioServicio" class="formulario-container">
+      <div class="formulario">
+        <h3>Nuevo Servicio</h3>
+        <form id="formServicio">
+          <div class="campo">
+            <label for="nombreServicio">Nombre del servicio:</label>
+            <input type="text" id="nombreServicio" required />
+          </div>
+          <div class="campo">
+            <label for="precioServicio">Precio:</label>
+            <input
+              type="number"
+              id="precioServicio"
+              required
+              min="0"
+              step="0.01"
+            />
+          </div>
+          <div class="campo">
+            <label for="descripcionServicio">Descripción:</label>
+            <input type="text" id="descripcionServicio" required />
+          </div>
+          <div class="botones-formulario">
+            <button type="submit" class="btn btn-guardar">Guardar</button>
+            <button
+              type="button"
+              id="cancelarServicio"
+              class="btn btn-cancelar"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
