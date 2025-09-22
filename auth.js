@@ -45,3 +45,6 @@ function cerrarSesion() {
 }
 
 document.getElementById("loginForm").addEventListener("submit", iniciarSesion);
+document
+  .getElementById("btn btn-logout")
+  ?.addEventListener("click", cerrarSesion);
