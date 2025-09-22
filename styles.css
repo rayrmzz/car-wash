@@ -7,7 +7,7 @@
 
 .topbar {
   width: 100%;
-  height: 70px;
+  min-height: 70px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
   text-align: center;
@@ -15,6 +15,8 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .btn {
@@ -44,17 +46,19 @@
 
 .topbar h1 {
   margin-right: auto;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .topbar a {
   text-decoration: none;
   color: black;
-  font-size: 24px;
-  margin: 0 20px;
+  font-size: clamp(16px, 3vw, 24px);
+  margin: 0 10px;
   font-weight: bold;
   letter-spacing: 1px;
   padding: 10px;
   transition: ease-in-out 0.2s;
+  white-space: nowrap;
 }
 
 .topbar a:hover {
@@ -67,10 +71,12 @@
   justify-content: space-between;
   align-items: center;
   margin: 0 20px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .pageHeader h1 {
-  font-size: 32px;
+  font-size: clamp(1.8rem, 5vw, 2rem);
   color: #333;
 }
 
@@ -128,7 +134,6 @@
   transition: background-color 0.2s ease;
 }
 
-/* Botones de acciones de citas */
 .completeButton {
   background: #28a745;
   color: white;
@@ -177,7 +182,6 @@
   background: #138496;
 }
 
-/* Estados de citas */
 .estado-cita {
   margin-top: 10px;
 }
@@ -209,7 +213,6 @@
   border: 1px solid #ffcdd2;
 }
 
-/* Responsive para botones */
 @media (max-width: 768px) {
   .itemActions {
     display: flex;
@@ -227,7 +230,6 @@
   }
 }
 
-/* Dashboard Styles */
 .summary-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -277,7 +279,6 @@
   color: #dc3545;
 }
 
-/* Upcoming Appointments Styles */
 #citasProximas {
   margin: 20px;
 }
@@ -382,7 +383,6 @@
   font-size: 28px;
 }
 
-/* Estilos para el formulario de citas */
 .formulario-container {
   position: fixed;
   top: 0;
@@ -545,4 +545,300 @@
   border-radius: 4px;
   margin-top: 1rem;
   border: 1px solid #f5c6cb;
+}
+
+.container {
+  padding: 0 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn {
+  min-height: 40px;
+  touch-action: manipulation;
+}
+
+@media (max-width: 1024px) {
+  .summary-cards {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin: 15px;
+  }
+
+  .topbar a {
+    margin: 0 8px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 15px 10px;
+    min-height: 60px;
+  }
+
+  .topbar h1 {
+    font-size: 1.5rem;
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .topbar a {
+    font-size: 14px;
+    margin: 0 5px;
+    padding: 8px;
+  }
+
+  .btn-logout {
+    margin-left: 0;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .pageHeader {
+    margin: 0 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .pageHeader h1 {
+    font-size: 1.8rem;
+  }
+
+  .summary-cards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 10px;
+  }
+
+  .summary-card {
+    padding: 15px;
+  }
+
+  .summary-number {
+    font-size: 28px;
+  }
+
+  .item {
+    margin: 10px;
+    padding: 12px;
+  }
+
+  .itemInfo {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .itemActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .appointment-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 15px;
+  }
+
+  .appointment-time {
+    min-width: auto;
+    margin-right: 0;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  .appointment-client {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .topbar h1 {
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+  }
+
+  .topbar a {
+    font-size: 12px;
+    margin: 0 3px;
+    padding: 6px 8px;
+  }
+
+  .btn,
+  .btn-logout {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .pageHeader {
+    margin: 0 5px;
+  }
+
+  .pageHeader h1 {
+    font-size: 1.5rem;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin: 5px;
+  }
+
+  .summary-card {
+    padding: 12px;
+  }
+
+  .summary-number {
+    font-size: 24px;
+  }
+
+  .item {
+    margin: 5px;
+    padding: 10px;
+  }
+
+  .itemInfo {
+    font-size: 16px;
+  }
+
+  .itemActions button {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .formulario {
+    width: 95%;
+    padding: 1rem;
+    margin: 10px;
+  }
+
+  .formulario h3 {
+    font-size: 1.2rem;
+  }
+
+  .campo input,
+  .campo select {
+    font-size: 16px;
+  }
+
+  .botones-formulario {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .upcoming-appointments {
+    margin: 0 5px;
+  }
+
+  .appointment-item {
+    padding: 10px;
+  }
+
+  .appointment-time .time {
+    font-size: 16px;
+  }
+
+  .appointment-time .date {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .topbar {
+    padding: 8px;
+  }
+
+  .topbar h1 {
+    font-size: 1.2rem;
+  }
+
+  .topbar a {
+    font-size: 11px;
+    padding: 4px 6px;
+    margin: 0 2px;
+  }
+
+  .summary-cards {
+    margin: 5px 2px;
+  }
+
+  .summary-card {
+    padding: 8px;
+  }
+
+  .summary-number {
+    font-size: 20px;
+  }
+
+  .item {
+    margin: 5px 2px;
+    padding: 8px;
+  }
+
+  .itemInfo {
+    font-size: 14px;
+  }
+
+  .formulario {
+    width: 98%;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .topbar {
+    min-height: 50px;
+    padding: 8px 10px;
+  }
+
+  .topbar h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  .topbar a {
+    font-size: 13px;
+    margin: 0 5px;
+  }
+
+  .formulario {
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .topbar a,
+  .deleteButton,
+  .completeButton,
+  .cancelButton,
+  .reactivateButton {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .itemActions button {
+    margin: 2px;
+  }
 }

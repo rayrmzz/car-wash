@@ -44,13 +44,11 @@ function cerrarSesion() {
   window.location.href = "login.html";
 }
 
-// Solo agregar el event listener si estamos en la página de login
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   if (loginForm) {
     loginForm.addEventListener("submit", iniciarSesion);
   } else {
-    // Si no estamos en la página de login, verificar la sesión
     verificarSesion();
   }
 });

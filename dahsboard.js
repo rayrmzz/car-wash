@@ -1,4 +1,3 @@
-// Dashboard functionality for InstantWash
 document.addEventListener("DOMContentLoaded", function () {
   cargarDashboard();
 });
@@ -11,16 +10,13 @@ function cargarDashboard() {
 function mostrarResumen() {
   const resumenSection = document.getElementById("resumen");
 
-  // Cargar datos del localStorage
   const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
   const citas = JSON.parse(localStorage.getItem("citas")) || [];
   const movimientos = JSON.parse(localStorage.getItem("movimientos")) || [];
 
-  // Calcular estadísticas
   const totalServicios = servicios.length;
   const totalCitas = citas.length;
 
-  // Calcular balance financiero
   let totalIngresos = 0;
   let totalGastos = 0;
 
@@ -34,7 +30,6 @@ function mostrarResumen() {
 
   const balance = totalIngresos - totalGastos;
 
-  // Crear HTML del resumen
   resumenSection.innerHTML = `
         <h2>Resumen del Negocio</h2>
         <div class="summary-cards">
@@ -70,7 +65,6 @@ function mostrarResumen() {
 function mostrarCitasProximas() {
   const citasProximasSection = document.getElementById("citasProximas");
 
-  // Cargar citas del localStorage
   const citas = JSON.parse(localStorage.getItem("citas")) || [];
 
   if (citas.length === 0) {
@@ -83,9 +77,8 @@ function mostrarCitasProximas() {
     return;
   }
 
-  // Filtrar y ordenar citas futuras
   const fechaActual = new Date();
-  fechaActual.setHours(0, 0, 0, 0); // Reset time to start of day
+  fechaActual.setHours(0, 0, 0, 0);
 
   const citasFuturas = citas
     .filter((cita) => {
@@ -98,7 +91,6 @@ function mostrarCitasProximas() {
       return fechaA - fechaB;
     });
 
-  // Mostrar solo las próximas 5 citas
   const proximasCitas = citasFuturas.slice(0, 5);
 
   let citasHTML = "<h2>Próximas Citas</h2>";
@@ -121,7 +113,6 @@ function mostrarCitasProximas() {
         day: "numeric",
       });
 
-      // Determinar si es hoy, mañana o fecha futura
       const hoy = new Date();
       hoy.setHours(0, 0, 0, 0);
       const manana = new Date(hoy);
@@ -160,12 +151,10 @@ function mostrarCitasProximas() {
   citasProximasSection.innerHTML = citasHTML;
 }
 
-// Función para actualizar el dashboard cuando se modifiquen los datos
 function actualizarDashboard() {
   cargarDashboard();
 }
 
-// Escuchar cambios en localStorage para actualizar automáticamente
 window.addEventListener("storage", function (e) {
   if (e.key === "servicios" || e.key === "citas" || e.key === "movimientos") {
     actualizarDashboard();

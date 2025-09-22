@@ -63,7 +63,7 @@ function agregarCita(event) {
         nombre: servicioSeleccionado.nombre,
         precio: servicioSeleccionado.precio,
       },
-      estado: "programada", // Estados: programada, completada, cancelada
+      estado: "programada",
     };
 
     citas.push(nuevaCita);
@@ -77,7 +77,6 @@ function mostrarCitas() {
   console.log("Mostrando citas:", citas);
   listaCitas.innerHTML = "";
 
-  // Ordenar citas por fecha y hora
   let citasOrdenadas = [...citas].sort((a, b) => {
     let fechaHoraA = new Date(`${a.fecha}T${a.hora}`);
     let fechaHoraB = new Date(`${b.fecha}T${b.hora}`);
@@ -88,7 +87,6 @@ function mostrarCitas() {
     let citaDiv = document.createElement("div");
     citaDiv.className = "item";
 
-    // Formatear fecha
     let fechaFormateada = new Date(cita.fecha).toLocaleDateString("es-ES", {
       weekday: "long",
       year: "numeric",
@@ -140,8 +138,6 @@ function cargarCitas() {
   let citasGuardadas = localStorage.getItem("citas");
   if (citasGuardadas) {
     citas = JSON.parse(citasGuardadas);
-
-    // Agregar estado "programada" a citas existentes que no lo tengan
     citas = citas.map((cita) => {
       if (!cita.estado) {
         cita.estado = "programada";
@@ -168,7 +164,6 @@ formularioCita.onclick = function (event) {
 
 cargarCitas();
 
-// Funciones para manejo de estados de citas
 function obtenerTextoEstado(estado) {
   switch (estado) {
     case "programada":
@@ -208,7 +203,6 @@ function completarCita(id) {
   if (cita) {
     cita.estado = "completada";
 
-    // Agregar el pago automáticamente a las finanzas
     if (cita.servicio) {
       agregarPagoAutomatico(cita);
     }
@@ -240,10 +234,8 @@ function reactivarCita(id) {
 }
 
 function agregarPagoAutomatico(cita) {
-  // Obtener movimientos existentes
   let movimientos = JSON.parse(localStorage.getItem("movimientos")) || [];
 
-  // Crear nuevo pago
   let nuevoPago = {
     id: Date.now(),
     tipo: "pago",
@@ -252,7 +244,6 @@ function agregarPagoAutomatico(cita) {
     fecha: new Date().toLocaleDateString(),
   };
 
-  // Agregar y guardar
   movimientos.push(nuevoPago);
   localStorage.setItem("movimientos", JSON.stringify(movimientos));
 }
