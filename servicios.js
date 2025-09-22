@@ -1,20 +1,3 @@
-if (!verificarSesion()) {
-}
-
-function verificarSesion() {
-  const usuario = localStorage.getItem("usuarioLogueado");
-  const loginTime = localStorage.getItem("loginTime");
-  const currentTime = new Date().getTime();
-
-  if (!usuario || !loginTime || currentTime - loginTime > 28800000) {
-    localStorage.removeItem("usuarioLogueado");
-    localStorage.removeItem("loginTime");
-    window.location.href = "login.html";
-    return false;
-  }
-  return true;
-}
-
 let servicios = [];
 
 let botonAgregar = document.getElementById("agregarServicio");

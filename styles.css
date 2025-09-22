@@ -32,6 +32,16 @@
   background-color: #ccc;
 }
 
+.btn-logout {
+  background: #dc3545;
+  color: white;
+  margin-left: 10px;
+}
+
+.btn-logout:hover {
+  background: #c82333;
+}
+
 .topbar h1 {
   margin-right: auto;
 }
