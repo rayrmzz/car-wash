@@ -1,7 +1,7 @@
 const usuarios = {
   admin: "admin123",
-  empleado: "empleado123",
-  gerente: "gerente123",
+  empleado1: "emp123",
+  gerente: "ger456",
 };
 
 function iniciarSesion(event) {
@@ -13,10 +13,10 @@ function iniciarSesion(event) {
 
   if (usuarios[usuario] && usuarios[usuario] === password) {
     localStorage.setItem("usuarioLogueado", usuario);
-    localStorage.setItem("logintime", new Date().getTime());
+    localStorage.setItem("loginTime", new Date().getTime());
     window.location.href = "index.html";
   } else {
-    errorDiv.textContent = "Usuario o contraseña incorrectos.";
+    errorDiv.textContent = "Usuario o contraseña incorrectos";
     errorDiv.className = "error-visible";
     setTimeout(() => {
       errorDiv.className = "error-hidden";
@@ -26,12 +26,12 @@ function iniciarSesion(event) {
 
 function verificarSesion() {
   const usuario = localStorage.getItem("usuarioLogueado");
-  const logintime = localStorage.getItem("logintime");
+  const loginTime = localStorage.getItem("loginTime");
   const currentTime = new Date().getTime();
 
-  if (!usuario || !logintime || currentTime - logintime > 28800000) {
+  if (!usuario || !loginTime || currentTime - loginTime > 28800000) {
     localStorage.removeItem("usuarioLogueado");
-    localStorage.removeItem("logintime");
+    localStorage.removeItem("loginTime");
     window.location.href = "login.html";
     return false;
   }
@@ -40,7 +40,7 @@ function verificarSesion() {
 
 function cerrarSesion() {
   localStorage.removeItem("usuarioLogueado");
-  localStorage.removeItem("logintime");
+  localStorage.removeItem("loginTime");
   window.location.href = "login.html";
 }
 
