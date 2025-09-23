@@ -111,3 +111,41 @@ formularioMovimiento.onclick = function (event) {
     ocultarFormulario();
   }
 };
+
+function toggleSidebar() {
+  const sidebar = document.querySelector(".sidebar");
+  const overlay = document.querySelector(".sidebar-overlay");
+  const hamburger = document.querySelector(".hamburger-menu");
+
+  sidebar.classList.toggle("active");
+  overlay.classList.toggle("active");
+  hamburger.classList.toggle("active");
+}
+
+function closeSidebar() {
+  const sidebar = document.querySelector(".sidebar");
+  const overlay = document.querySelector(".sidebar-overlay");
+  const hamburger = document.querySelector(".hamburger-menu");
+
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+  hamburger.classList.remove("active");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.querySelector(".hamburger-menu");
+  const overlay = document.querySelector(".sidebar-overlay");
+  const sidebarLinks = document.querySelectorAll(".sidebar a");
+
+  if (hamburger) {
+    hamburger.addEventListener("click", toggleSidebar);
+  }
+
+  if (overlay) {
+    overlay.addEventListener("click", closeSidebar);
+  }
+
+  sidebarLinks.forEach((link) => {
+    link.addEventListener("click", closeSidebar);
+  });
+});

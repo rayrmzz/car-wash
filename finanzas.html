@@ -9,15 +9,35 @@
     <script src="finanzas.js" defer></script>
   </head>
   <body>
+    <div class="sidebar-overlay"></div>
+    <div class="sidebar">
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="services.html">Servicios</a>
+        <a href="citas.html">Citas</a>
+        <a href="finanzas.html">Finanzas</a>
+        <button onclick="cerrarSesion()" class="btn btn-logout">
+          Cerrar Sesión
+        </button>
+      </div>
+    </div>
+
     <div class="topbar">
+      <div class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <h1 id="titulo">InstantWash</h1>
-      <a href="index.html">Inicio</a>
-      <a href="services.html">Servicios</a>
-      <a href="citas.html">Citas</a>
-      <a href="finanzas.html">Finanzas</a>
-      <button onclick="cerrarSesion()" class="btn btn-logout">
-        Cerrar Sesión
-      </button>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="services.html">Servicios</a>
+        <a href="citas.html">Citas</a>
+        <a href="finanzas.html">Finanzas</a>
+        <button onclick="cerrarSesion()" class="btn btn-logout">
+          Cerrar Sesión
+        </button>
+      </div>
     </div>
     <div class="container">
       <header class="pageHeader">
